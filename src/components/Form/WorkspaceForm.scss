@@ -1,0 +1,34 @@
+.form {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	margin-bottom: 3rem;
+
+	div.formRow {
+		display: flex;
+		justify-content: flex-start;
+		width: 100%;
+		margin-top: 1rem;
+
+		.inputs {
+			margin-right: 3rem;
+			width: 20ch;
+		}
+
+		.description {
+			margin-right: 1rem;
+			width: 100%;
+		}
+	}
+
+	div.formBtnRow {
+		display: flex;
+		justify-content: flex-end;
+		width: 100%;
+		margin-top: 1rem;
+
+		.formBtns {
+			margin-right: 1rem;
+		}
+	}
+}

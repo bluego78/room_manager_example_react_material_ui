@@ -1,0 +1,29 @@
+{
+  "workspaces": [
+    {
+      "id": "3",
+      "type": "Desk",
+      "name": "Desk 1",
+      "description": "a desk made of cocobolo"
+    },
+    {
+      "id": "4",
+      "type": "Desk",
+      "name": "Desk 2",
+      "description": "Description of desk 2"
+    },
+    {
+      "id": "5",
+      "type": "Huddle",
+      "name": "Huddle 1",
+      "description": "Test description huddle"
+    },
+    {
+      "id": "Tm0bqIx",
+      "type": "Room",
+      "name": "Room 1",
+      "capacity": "9",
+      "description": "A room"
+    }
+  ]
+}

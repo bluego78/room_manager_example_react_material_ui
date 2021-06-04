@@ -1,0 +1,51 @@
+.WorkspacesTableHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	.TableTitle{
+		display:flex;
+		align-items: center;
+	}
+}
+
+.spinner {
+	position:absolute;
+	margin-left: -2rem;
+}
+
+.AreYouSure {
+	padding: 3px 10px 3px 10px;
+}
+
+.tableRow {
+	.rowCell {
+		font-weight: 700;
+	}
+
+	.collapseCell {
+		width: 100px;
+	}
+
+	.nameCell {
+		width: 200px;
+	}
+
+	.detailsCell {
+		padding: 0px;
+
+		.collapse {
+			background-color: #f5f5f5;
+
+            .box{
+                display: flex;
+                align-items: left;
+                margin-left: 140px; 
+
+                .capacity {
+                    margin-right: 60px;
+                }
+            }
+		}
+	}
+}
