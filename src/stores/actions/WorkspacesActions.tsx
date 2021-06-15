@@ -47,16 +47,32 @@ export const setNotification = (notification: INotification | null) => {
     return { type: Constants.SET_NOTIFICATION, notification };
 }
 
+export const fetchWorkspaces = () => {
+    return { type: Constants.FETCH_WORKSPACES };
+}
+
 export const setWorkspaces = (workspaces: Array<IWorkspace>) => {
     return { type: Constants.SET_WORKSPACES, workspaces };
+}
+
+export const postWorkspace = (workspace: IWorkspace) => {
+    return { type: Constants.POST_WORKSPACE, workspace };
 }
 
 export const addWorkspace = (workspace: IWorkspace) => {
     return { type: Constants.ADD_WORKSPACE, workspace };
 }
 
+export const putWorkspace = (workspace: IWorkspace) => {
+    return { type: Constants.PUT_WORKSPACE, workspace };
+}
+
 export const editWorkspace = (workspace: IWorkspace) => {
     return { type: Constants.EDIT_WORKSPACE, workspace };
+}
+
+export const deleteWorkspace = (workspace: IWorkspace) => {
+    return { type: Constants.DELETE_WORKSPACE, workspace };
 }
 
 export const removeWorkspace = (workspace: IWorkspace) => {

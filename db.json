@@ -4,7 +4,7 @@
       "id": "3",
       "type": "Desk",
       "name": "Desk 1",
-      "description": "a desk made of cocobolo"
+      "description": "a desk"
     },
     {
       "id": "4",
@@ -19,11 +19,11 @@
       "description": "Test description huddle"
     },
     {
-      "id": "Tm0bqIx",
-      "type": "Room",
-      "name": "Room 1",
-      "capacity": "9",
-      "description": "A room"
+      "id": "mM-HkLJ",
+      "type": "Desk",
+      "name": "Desk3",
+      "capacity": null,
+      "description": "my desk"
     }
   ]
 }

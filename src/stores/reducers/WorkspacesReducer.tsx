@@ -18,7 +18,7 @@ import IWorkspace from '../../interfaces/IWorkspace';
 const WorkspacesReducer = (state = MainState, action: any) => {
     switch (action.type) {
 
-        //* *********************************************************** */
+         //* *********************************************************** */
         //  Application state settings actions
         //* *********************************************************** */
 
@@ -46,6 +46,7 @@ const WorkspacesReducer = (state = MainState, action: any) => {
         case Constants.SET_ITEM_TO_DELETE:
             return { ...state, itemToDelete: action.itemToDelete };
 
+            
         //* *********************************************************** */
         //  Workspace actions
         //* *********************************************************** */

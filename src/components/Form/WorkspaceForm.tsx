@@ -21,9 +21,7 @@ import './WorkspaceForm.scss';
 import * as CommonStrings from '../../constants/CommonStrings';
 import RoomTypeEnum from '../../enums/RoomTypeEnum';
 import * as actions from '../../stores/actions/WorkspacesActions';
-import { postWorkspace, putWorkspace } from '../../services/WorkspacesService';
 import { initWorkSpace } from '../../stores/states/MainState';
-import NotificationEnum from '../../enums/NotificationEnum';
 
 //* *********************************************************** */
 //  Interfaces imports
@@ -76,7 +74,6 @@ const WorkSpaceForm = () => {
   //* ********************************************************************* */
 
   const resetError = (fieldName:string) => {
-    console.log(fieldName)
     let errorIdx = formErrors.findIndex(e=>e.field===fieldName);
     if(errorIdx>-1)
     {
@@ -144,35 +141,13 @@ const WorkSpaceForm = () => {
     if (formIsValid(mainState.itemToEdit as IWorkspace)) {
       // ADD A NEW WORKSPACE
       if (mainState.isAdding) {
-
-        let res = await postWorkspace(mainState.itemToEdit as IWorkspace);
-        if (res.status === 201 && res.statusText === "Created") {
-          dispatch(actions.addWorkspace({ ...mainState.itemToEdit, id: res.payload.id } as IWorkspace));
-          dispatch(actions.setItemToEdit(initWorkSpace));
-          dispatch(actions.setNotification({ type: NotificationEnum.SUCCESS, message: CommonStrings.SAVE_OK }));
-          closeForm();
-        }
-        else {
-          dispatch(actions.setNotification({ type: NotificationEnum.ERROR, message: CommonStrings.ERROR_SAVE }));
-        }
-
+        dispatch(actions.postWorkspace(mainState.itemToEdit as IWorkspace));
       }
-
       // UPDATE AN EXISTING WORKSPACE
       else {
-
-        let res = await putWorkspace(mainState.itemToEdit as IWorkspace);
-        if (res.status === 200 && res.statusText === "OK") {
-          dispatch(actions.editWorkspace(mainState.itemToEdit as IWorkspace));
-          dispatch(actions.setItemToEdit(initWorkSpace));
-          dispatch(actions.setNotification({ type: NotificationEnum.SUCCESS, message: CommonStrings.UPDATE_OK }));
-          closeForm();
-        }
-        else {
-          dispatch(actions.setNotification({ type: NotificationEnum.ERROR, message: CommonStrings.ERROR_UPDATE }));
-        }
-
+        dispatch(actions.putWorkspace(mainState.itemToEdit as IWorkspace));
       }
+      closeForm();
     }
   }
 

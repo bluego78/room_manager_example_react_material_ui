@@ -27,7 +27,6 @@ import './Table.scss';
 
 import * as CommonStrings from '../../constants/CommonStrings';
 import * as actions from '../../stores/actions/WorkspacesActions';
-import { deleteWorkspace } from '../../services/WorkspacesService';
 import { initWorkSpace } from '../../stores/states/MainState';
 
 //* *********************************************************** */
@@ -36,7 +35,6 @@ import { initWorkSpace } from '../../stores/states/MainState';
 
 import IWorkspace from '../../interfaces/IWorkspace';
 import IMainState from '../../interfaces/IMainState';
-import NotificationEnum from '../../enums/NotificationEnum';
 
 
 const WorkspaceTableRow = (props: any) => {
@@ -63,14 +61,7 @@ const WorkspaceTableRow = (props: any) => {
   //  and then dispatch the changes to the state
   //* *********************************************************** */
   const onConfirmDelete = async (workspace: IWorkspace) => {
-    let res = await deleteWorkspace(workspace);
-    if (res.status === 200) {
-      dispatch(actions.removeWorkspace(workspace));
-      dispatch(actions.setNotification({ type: NotificationEnum.SUCCESS, message: CommonStrings.DELETE_OK }));
-    }
-    else {
-      dispatch(actions.setNotification({ type: NotificationEnum.ERROR, message: CommonStrings.ERROR_DELETE }));
-    }
+    dispatch(actions.deleteWorkspace(workspace));
     onCancelDelete();
   }
 

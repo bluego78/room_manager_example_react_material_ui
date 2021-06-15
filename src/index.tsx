@@ -6,7 +6,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from 'react-redux';
-import ReduxThunk from "redux-thunk";
+import apiMiddleware from './stores/middlewares/apiMiddelware';
 
 //* *********************************************************** */
 //  Styles imports
@@ -30,7 +30,7 @@ import AppReducer from './stores/reducers/WorkspacesReducer';
 //  Creates the store
 //* *********************************************************** */
 
-const store = createStore(AppReducer, applyMiddleware(ReduxThunk));
+const store = createStore(AppReducer, applyMiddleware(apiMiddleware));
 
 //* *********************************************************** */
 //  Provides the redux store to the App component and render

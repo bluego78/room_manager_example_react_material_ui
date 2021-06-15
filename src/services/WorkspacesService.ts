@@ -3,7 +3,7 @@
 //  React and other npm's packages imports
 //* *********************************************************** */
 
-import axios from 'axios'
+import axios from 'axios';
 import IServiceResponse from '../interfaces/IServiceResponse';
 
 //* *********************************************************** */

@@ -16,36 +16,19 @@ import IMainState from '../../interfaces/IMainState';
 //  Custom components imports
 //* *********************************************************** */
 
-import { getWorkspaces } from '../../services/WorkspacesService';
 import * as actions from '../../stores/actions/WorkspacesActions';
 import WorkspacesTable from '../Table/WorkspacesTable';
 import Notification from '../../components/Notification/Notification';
-import * as CommonStrings from '../../constants/CommonStrings';
-import NotificationEnum from '../../enums/NotificationEnum';
-
 
 const App = () => {
 
   const dispatch = useDispatch();
   const mainState: IMainState = useSelector(state => state) as IMainState;
-
   //* *********************************************************** */
   //  Function to load the workspaces from the WorkspacesService
   //* *********************************************************** */
   const loadWorkspaces = async () => {
-    dispatch(actions.setIsLoading(true));
-    let workspacesResponse = await getWorkspaces();
-    if (workspacesResponse) {
-      if (workspacesResponse.status && workspacesResponse.status === 200) {
-        dispatch(actions.setWorkspaces(workspacesResponse.payload))
-        dispatch(actions.setWorkspacesLoaded(true));
-        dispatch(actions.setIsLoading(false));
-      }
-      else {
-        dispatch(actions.setNotification({ type: NotificationEnum.ERROR, message: CommonStrings.LOADING_ERROR }));
-        dispatch(actions.setIsLoading(false));
-      }
-    }
+    dispatch(actions.fetchWorkspaces());
   }
 
   //* *********************************************************** */
